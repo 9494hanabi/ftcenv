@@ -48,7 +48,7 @@ Android Studio を起動し、SDK Manager を開く。
 ## Step 3: プロジェクトを開く
 
 1. Android Studio で **File → Open**
-2. この `ftcenv/` フォルダを選択
+2. この `ftcenv-quickstart/` フォルダを選択
 3. **Gradle Sync** が自動で開始される
 4. 初回は FTC SDK の依存ライブラリダウンロードに 3〜5 分かかる
 5. Sync 完了後、左パネルの Project Explorer に以下が表示される:
@@ -67,11 +67,12 @@ SOLUTION.md に既知の問題と解決策を記録している。まずそち�
 Gradle Sync 成功後の状態:
 
 ```
-ftcenv/
+ftcenv-quickstart/
 ├── FtcRobotController/    ... SDK本体 (触らない)
 ├── TeamCode/              ... ★ 自分のコードを書く場所
 │   └── src/main/java/org/firstinspires/ftc/teamcode/
 ├── sample-pj/             ... サンプルOpMode
+├── documents/             ... ドキュメント一式
 ├── build.gradle           ... AGP 8.7.2 / SDK 11.1.0
 ├── build.common.gradle    ... 共通ビルド設定 (compileSdk 34)
 ├── gradle.properties      ... Gradle設定
@@ -154,6 +155,6 @@ cp sample-pj/src/main/java/org/firstinspires/ftc/teamcode/SingleMotorForward.jav
 
 ## 次のステップ
 
-- 開発の進め方の詳細 → [INSTRUCTION.md](INSTRUCTION.md)
-- 環境の技術仕様 → [ENVIRONMENT.md](ENVIRONMENT.md)
-- 既知の問題と解決策 → [SOLUTION.md](SOLUTION.md)
+- 開発の進め方の詳細 → [INSTRUCTION.md](./INSTRUCTION.md)
+- 環境の技術仕様 → [ENVIRONMENT.md](./ENVIRONMENT.md)
+- 既知の問題と解決策 → [SOLUTION.md](./SOLUTION.md)

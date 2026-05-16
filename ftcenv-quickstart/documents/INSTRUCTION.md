@@ -16,7 +16,7 @@
 ## 2. プロジェクトを開く
 
 1. Android Studio を起動
-2. **File → Open** でこの `ftcenv/` フォルダを選択
+2. **File → Open** でこの `ftcenv-quickstart/` フォルダを選択
 3. Gradle Sync が自動で走る。初回はSDK依存のダウンロードに数分かかる
 4. 左のProject Explorerで `TeamCode/src/main/java/org/firstinspires/ftc/teamcode/` を確認
 

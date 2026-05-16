@@ -4,7 +4,7 @@
 
 ## 概要
 
-この `ftcenv/` は FIRST Tech Challenge (FTC) のロボットプログラミング環境である。
+この `ftcenv-quickstart/` は FIRST Tech Challenge (FTC) のロボットプログラミング環境である。
 FIRST-Tech-Challenge/FtcRobotController リポジトリ (SDK 11.1.0) の構造をベースに構築されている。
 
 ---
@@ -27,7 +27,7 @@ FIRST-Tech-Challenge/FtcRobotController リポジトリ (SDK 11.1.0) の構造�
 ## ディレクトリ構成
 
 ```
-ftcenv/
+ftcenv-quickstart/
 ├── build.gradle                  # ルートビルドファイル (AGP・リポジトリ定義)
 ├── build.common.gradle           # 共通ビルド設定 (SDK提供、編集非推奨)
 ├── build.dependencies.gradle     # FTC SDK 依存ライブラリ定義
@@ -38,6 +38,7 @@ ftcenv/
 │   └── wrapper/
 │       └── gradle-wrapper.properties   # Gradleラッパー設定
 ├── libs/                         # 署名用キーストア格納先
+│   └── ftc.debug.keystore
 ├── FtcRobotController/           # SDK本体モジュール (編集不要)
 │   ├── build.gradle
 │   └── src/main/AndroidManifest.xml
@@ -49,8 +50,11 @@ ftcenv/
 │   ├── README.md
 │   └── src/main/java/org/firstinspires/ftc/teamcode/
 │       └── SingleMotorForward.java
-├── INSTRUCTION.md                # 開発の進め方
-└── ENVIRONMENT.md                # ← このファイル
+└── documents/                    # ドキュメント
+    ├── ENVIRONMENT.md            # ← このファイル
+    ├── INSTRUCTION.md            # 開発の進め方
+    ├── SETUP.md                  # 環境構築手順
+    └── SOLUTION.md               # 既知の問題と解決策
 ```
 
 ---
@@ -61,7 +65,7 @@ ftcenv/
 
 - **build.gradle** (ルート): Android Gradle Plugin のバージョンとリポジトリを定義。基本的に触らない。
 - **build.common.gradle**: SDK提供の共通ビルド設定。compileSdk, minSdk, 署名設定、NDK設定などが含まれる。SDK更新時に差し替えるファイルなので編集しない。
-- **build.dependencies.gradle**: FTC SDK の Maven 依存を定義。SDKバージョンアップ時はここのバージョン番号を更新する。
+- **build.dependencies.gradle**: FTC SDK の Maven 依存定義（現在は dependencies をルート `build.gradle` に統合済み）。
 - **settings.gradle**: Gradleに認識させるモジュールを列挙。
 - **gradle.properties**: JVMヒープサイズ等のGradle全般設定。
 
@@ -76,21 +80,19 @@ ftcenv/
 
 ### 必要なもの
 
-1. **Android Studio** (Ladybug 以降推奨)
-2. **Android SDK** (API Level 30)
-3. **NDK** (21.3.6528147)
+1. **Android Studio** (Ladybug 2024.2 以降)
+2. **Android SDK** (API Level 34)
 
 ### インストール手順
 
 1. https://developer.android.com/studio からAndroid Studioをダウンロード・インストール
 2. Android Studio 起動後 **SDK Manager** を開く (File → Settings → Appearance & Behavior → System Settings → Android SDK)
-3. **SDK Platforms** タブ: Android 11 (API 30) にチェックを入れてインストール
+3. **SDK Platforms** タブ: Android 14 (API 34) にチェックを入れてインストール
 4. **SDK Tools** タブ: 以下をインストール
-   - Android SDK Build-Tools
-   - NDK (Side by side) — バージョン 21.3.6528147
+   - Android SDK Build-Tools (最新)
    - Android SDK Platform-Tools
-   - Android SDK Command-line Tools
-5. **File → Open** で `ftcenv/` を開く
+   - Android SDK Command-line Tools (latest)
+5. **File → Open** で `ftcenv-quickstart/` を開く
 6. Gradle Sync が実行される（初回は依存ライブラリのダウンロードに数分かかる）
 
 ### 接続方法
@@ -140,8 +142,8 @@ ftcenv/
 FIRSTから新しいSDKがリリースされた場合:
 
 1. https://github.com/FIRST-Tech-Challenge/FtcRobotController/releases で最新リリースを確認
-2. `build.dependencies.gradle` のバージョン番号を更新 (例: `11.1.0` → `11.2.0`)
-3. 必要に応じて `build.common.gradle` を公式リポジトリのものに差し替え
+2. ルート `build.gradle` の FTC SDK バージョン番号を更新 (例: `11.1.0` → `11.2.0`)
+3. 必要に応じて `build.common.gradle` を公式リポジトリのものに差し替え（AGP 8.x 構文に注意）
 4. Gradle Sync を実行
 5. ビルドエラーがないか確認
 
