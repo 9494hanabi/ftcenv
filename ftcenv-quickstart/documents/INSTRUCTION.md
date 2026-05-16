@@ -24,19 +24,9 @@
 
 ## 3. サンプルコードを使って開発する (sample-pj を例に)
 
-### 3.1 コードを配置する
-
-`sample-pj/` のファイルを `TeamCode` にコピーする:
-
-```
-sample-pj/src/main/java/org/firstinspires/ftc/teamcode/SingleMotorForward.java
-  ↓ コピー先
-TeamCode/src/main/java/org/firstinspires/ftc/teamcode/SingleMotorForward.java
-```
-
 自分で新しいOpModeを作る場合も、同じ `teamcode/` ディレクトリ内にJavaファイルを作成する。
 
-### 3.2 コードの構造を理解する
+### 3.1 コードの構造を理解する
 
 `SingleMotorForward.java` のポイント:
 
@@ -66,7 +56,7 @@ public class SingleMotorForward extends LinearOpMode {     // ← LinearOpMode�
 - `@TeleOp` ... ドライバー操作モード (試合の操縦期間)
 - `@Autonomous` ... 自律動作モード (試合の自律期間)
 
-### 3.3 Robot Configuration を設定する
+### 3.2 Robot Configuration を設定する
 
 Driver Station 側で Hardware Configuration を作成する必要がある:
 
@@ -78,7 +68,7 @@ Driver Station 側で Hardware Configuration を作成する必要がある:
 6. モーターの種類を選択 (例: `Rev Robotics Core Hex Motor`, `goBILDA 5202/5203` 等)
 7. **Save** で保存し、構成をアクティブにする
 
-### 3.4 ビルドとデプロイ
+### 3.3 ビルドとデプロイ
 
 1. Robot Controller とPCをUSBで接続 (または Wi-Fi Direct)
 2. Android Studio 上部のデバイス選択で Robot Controller を選択
@@ -86,7 +76,7 @@ Driver Station 側で Hardware Configuration を作成する必要がある:
 4. **Run → Run 'TeamCode'** (Shift+F10 / Ctrl+R) でデプロイ
 5. デプロイ完了後、Robot Controller のアプリが自動的に再起動する
 
-### 3.5 実行と動作確認
+### 3.4 実行と動作確認
 
 1. Driver Station で **TeleOp** メニューから **"Single Motor Forward"** を選択
 2. **INIT** ボタンを押す → テレメトリに "Initialized" が表示される
